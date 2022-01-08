@@ -78,6 +78,12 @@ response.class
 #=> MyHash
 ```
 
+## Migrate from faraday_middleware
+Please do the following
+
+1. `gem "faraday_middleware"` -> `gem "faraday-mashify"` in `Gemfile`
+2. `require "faraday_middleware"` -> `require "faraday/mashify"`
+
 ## Development
 
 After checking out the repo, run `bin/setup` to install dependencies.
