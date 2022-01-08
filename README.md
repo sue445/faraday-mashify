@@ -4,7 +4,11 @@
 [![Gem](https://img.shields.io/gem/v/faraday-mashify.svg?style=flat-square)](https://rubygems.org/gems/faraday-mashify)
 [![License](https://img.shields.io/github/license/sue445/faraday-mashify.svg?style=flat-square)](LICENSE.md)
 
-Faraday middleware for wrapping responses into Hashie::Mash.
+Faraday middleware for wrapping responses into [`Hashie::Mash`](https://github.com/hashie/hashie#mash).
+
+This very specific middleware has been extracted from the [`faraday_middleware`](https://github.com/lostisland/faraday_middleware) project.
+
+This is fully compatible with [`FaradayMiddleware::Mashify`](https://github.com/lostisland/faraday_middleware/blob/main/lib/faraday_middleware/response/mashify.rb)
 
 ## Installation
 
@@ -27,11 +31,30 @@ gem install faraday-mashify
 ```
 
 ## Usage
+```bash
+curl http://www.example.com/api/me
+{"name":"sue445"}
+```
 
 ```ruby
 require 'faraday/mashify'
 
-# TODO
+connection =
+  Faraday.new(url: 'http://www.example.com') do |conn|
+    conn.response :mashify
+    conn.response :json
+  end
+
+response = connection.get('/api/me').body
+
+response[:name]
+#=> "sue445"
+
+response['name']
+#=> "sue445"
+
+response.name
+#=> "sue445"
 ```
 
 ## Development
