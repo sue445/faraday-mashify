@@ -18,17 +18,6 @@ module Faraday
         self.mash_class = options[:mash_class] || self.class.mash_class || ::Hashie::Mash
       end
 
-      # This method will be called when the request is being prepared.
-      # You can alter it as you like, accessing things like request_body, request_headers, and more.
-      # Refer to Faraday::Env for a list of accessible fields:
-      # https://github.com/lostisland/faraday/blob/main/lib/faraday/options/env.rb
-      #
-      # @param env [Faraday::Env] the environment of the request being processed
-      def on_request(env)
-        # Do something with the request environment...
-        # This method is optional.
-      end
-
       # This method will be called when the response is being processed.
       # You can alter it as you like, accessing things like response_body, response_headers, and more.
       # Refer to Faraday::Env for a list of accessible fields:
