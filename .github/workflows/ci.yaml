@@ -1,22 +1,39 @@
 name: CI
 
 on:
-  - push
-  - pull_request
+  push:
+    branches:
+      - main
+  pull_request:
+    types:
+      - opened
+      - synchronize
+      - reopened
+  schedule:
+    - cron: "0 10 * * 5" # JST 19:00 (Fri)
 
 jobs:
   rubocop:
     runs-on: ubuntu-latest
     steps:
-    - uses: actions/checkout@v2
-    - name: Set up Ruby
-      uses: ruby/setup-ruby@v1
-      with:
-        ruby-version: 3.0
-        bundler-cache: true
-    - name: Run RuboCop
-      run: bundle exec rubocop
-
+      - uses: actions/checkout@v2
+      - name: Set up Ruby
+        uses: ruby/setup-ruby@v1
+        with:
+          ruby-version: 3.0
+          bundler-cache: true
+      - name: Run RuboCop
+        run: bundle exec rubocop
+      - name: Slack Notification (not success)
+        uses: lazy-actions/slatify@master
+        if: "! success()"
+        continue-on-error: true
+        with:
+          job_name: "*rubocop*"
+          type: ${{ job.status }}
+          icon_emoji: ":octocat:"
+          url: ${{ secrets.SLACK_WEBHOOK }}
+          token: ${{ secrets.GITHUB_TOKEN }}
   rspec:
     runs-on: ubuntu-latest
     strategy:
@@ -29,12 +46,42 @@ jobs:
           - '2.6'
           - '2.7'
           - '3.0'
+          - '3.1'
     steps:
-    - uses: actions/checkout@v2
-    - name: Set up Ruby
-      uses: ruby/setup-ruby@v1
-      with:
-        ruby-version: ${{ matrix.ruby }}
-        bundler-cache: true
-    - name: Run RSpec
-      run: bundle exec rspec
+      - uses: actions/checkout@v2
+      - name: Set up Ruby
+        uses: ruby/setup-ruby@v1
+        with:
+          ruby-version: ${{ matrix.ruby }}
+          bundler-cache: true
+      - name: Run RSpec
+        run: bundle exec rspec
+      - name: Slack Notification (not success)
+        uses: lazy-actions/slatify@master
+        if: "! success()"
+        continue-on-error: true
+        with:
+          job_name: ${{ format('*rspec* ({0})', matrix.ruby) }}
+          type: ${{ job.status }}
+          icon_emoji: ":octocat:"
+          url: ${{ secrets.SLACK_WEBHOOK }}
+          token: ${{ secrets.GITHUB_TOKEN }}
+
+  notify:
+    needs:
+      - rubocop
+      - rspec
+
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Slack Notification (success)
+        uses: lazy-actions/slatify@master
+        if: always()
+        continue-on-error: true
+        with:
+          job_name: '*build*'
+          type: ${{ job.status }}
+          icon_emoji: ":octocat:"
+          url: ${{ secrets.SLACK_WEBHOOK }}
+          token: ${{ secrets.GITHUB_TOKEN }}

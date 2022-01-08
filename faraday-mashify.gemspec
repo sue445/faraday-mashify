@@ -24,7 +24,8 @@ Gem::Specification.new do |spec|
     'documentation_uri' => "http://www.rubydoc.info/gems/#{spec.name}/#{spec.version}",
     'homepage_uri' => spec.homepage,
     'source_code_uri' => github_uri,
-    'wiki_uri' => "#{github_uri}/wiki"
+    'wiki_uri' => "#{github_uri}/wiki",
+    'rubygems_mfa_required' => 'true'
   }
 
   spec.files = Dir['lib/**/*', 'README.md', 'LICENSE.md', 'CHANGELOG.md']
@@ -38,7 +39,7 @@ Gem::Specification.new do |spec|
   spec.add_development_dependency 'rspec', '~> 3.0'
   spec.add_development_dependency 'simplecov', '~> 0.21.0'
 
-  spec.add_development_dependency 'rubocop', '~> 1.21.0'
+  spec.add_development_dependency 'rubocop', '~> 1.24.0'
   spec.add_development_dependency 'rubocop-packaging', '~> 0.5.0'
   spec.add_development_dependency 'rubocop-performance', '~> 1.0'
   spec.add_development_dependency 'rubocop-rspec', '~> 2.0'
