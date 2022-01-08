@@ -11,7 +11,7 @@ inherit_mode:
 AllCops:
   DisplayCopNames: true
   DisplayStyleGuide: true
-  TargetRubyVersion: 2.5
+  TargetRubyVersion: 2.6
   SuggestExtensions: false
   NewCops: enable
 
@@ -37,3 +37,6 @@ Packaging/RequireRelativeHardcodingLib:
   Exclude:
     - bin/**/*
     - spec/**/*
+
+RSpec/MultipleExpectations:
+  Enabled: false
