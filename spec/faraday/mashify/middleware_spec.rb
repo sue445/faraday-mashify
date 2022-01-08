@@ -62,7 +62,7 @@ RSpec.describe Faraday::Mashify::Middleware do
     end
   end
 
-  context 'custom mash subclass', type: :response do
+  context 'with custom mash subclass', type: :response do
     let(:options) { { mash_class: my_mash_class } }
 
     it 'instance level' do
