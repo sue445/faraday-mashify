@@ -4,9 +4,13 @@ module Faraday
   module Mashify
     # Public: Converts parsed response bodies to a Hashie::Mash if they were of Hash or Array type.
     class Middleware < Faraday::Middleware
+      # @!attribute [rw] mash_class
+      #   @return [Class]
       attr_accessor :mash_class
 
       class << self
+        # @!attribute [rw] mash_class
+        #   @return [Class]
         attr_accessor :mash_class
       end
 
