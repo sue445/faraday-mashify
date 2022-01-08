@@ -57,6 +57,27 @@ response.name
 #=> "sue445"
 ```
 
+### Customize response class
+If you want to customize the response class, pass `mash_class` to `conn.response :mashify`. (default is `Hashie::Mash`)
+
+e.g.
+
+```ruby
+class MyHash < Hashie::Mash
+end
+
+connection =
+  Faraday.new(url: 'http://www.example.com') do |conn|
+    conn.response :mashify, mash_class: MyHash
+    conn.response :json
+  end
+
+response = connection.get('/api/me').body
+
+response.class
+#=> MyHash
+```
+
 ## Development
 
 After checking out the repo, run `bin/setup` to install dependencies.
