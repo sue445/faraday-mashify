@@ -2,6 +2,7 @@
 
 require_relative 'mashify/middleware'
 require_relative 'mashify/version'
+require 'faraday'
 require 'hashie/mash'
 
 module Faraday
