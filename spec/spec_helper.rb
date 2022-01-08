@@ -3,6 +3,8 @@
 require 'faraday'
 require_relative '../lib/faraday/mashify'
 
+require 'webmock/rspec'
+
 module EnvCompatibility
   def faraday_env(env)
     if defined?(Faraday::Env)
