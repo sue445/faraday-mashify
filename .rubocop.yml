@@ -37,3 +37,6 @@ Packaging/RequireRelativeHardcodingLib:
   Exclude:
     - bin/**/*
     - spec/**/*
+
+RSpec/MultipleExpectations:
+  Enabled: false
