@@ -16,7 +16,7 @@ module Faraday
     # * conn.use Faraday::Mashify::Middleware
     # * conn.use :mashify
     # Without this line, only the former method is valid.
-    Faraday::Middleware.register_middleware(mashify: Faraday::Mashify::Middleware)
+    # Faraday::Middleware.register_middleware(mashify: Faraday::Mashify::Middleware)
 
     # Alternatively, you can register your middleware under Faraday::Request or Faraday::Response.
     # This will allow to load your middleware using the `request` or `response` methods respectively.
@@ -25,6 +25,6 @@ module Faraday
     # Faraday::Request.register_middleware(mashify: Faraday::Mashify::Middleware)
     #
     # Load middleware with conn.response :mashify
-    # Faraday::Response.register_middleware(mashify: Faraday::Mashify::Middleware)
+    Faraday::Response.register_middleware(mashify: Faraday::Mashify::Middleware)
   end
 end
