@@ -45,15 +45,19 @@ RSpec.describe Faraday::Mashify::Middleware do
       expect(values[1].username).to eq('sferik')
     end
 
-    it 'allows for use of custom Mash subclasses at the class level' do
-      original_class = described_class.mash_class
-      described_class.mash_class = my_mash_class
+    context 'with custom Mash subclasses at the class level', type: :response do
+      around do |example|
+        original_class = described_class.mash_class
 
-      begin
+        example.run
+
+        described_class.mash_class = original_class
+      end
+
+      it 'allows for use of custom Mash' do
+        described_class.mash_class = my_mash_class
         me = process({}).body
         expect(me).to be_instance_of(my_mash_class)
-      ensure
-        described_class.mash_class = original_class
       end
     end
   end
