@@ -4,11 +4,11 @@
 [![Gem](https://img.shields.io/gem/v/faraday-mashify.svg?style=flat-square)](https://rubygems.org/gems/faraday-mashify)
 [![License](https://img.shields.io/github/license/sue445/faraday-mashify.svg?style=flat-square)](LICENSE.md)
 
-Faraday middleware for wrapping responses into [`Hashie::Mash`](https://github.com/hashie/hashie#mash).
+Faraday middleware for wrapping responses into [Hashie::Mash](https://github.com/hashie/hashie#mash).
 
-This very specific middleware has been extracted from the [`faraday_middleware`](https://github.com/lostisland/faraday_middleware) project.
+This very specific middleware has been extracted from the [faraday_middleware](https://github.com/lostisland/faraday_middleware) project.
 
-This is fully compatible with [`FaradayMiddleware::Mashify`](https://github.com/lostisland/faraday_middleware/blob/main/lib/faraday_middleware/response/mashify.rb)
+This is fully compatible with [FaradayMiddleware::Mashify](https://github.com/lostisland/faraday_middleware/blob/main/lib/faraday_middleware/response/mashify.rb)
 
 ## Installation
 
