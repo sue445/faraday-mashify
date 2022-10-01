@@ -1,6 +1,5 @@
 # frozen_string_literal: true
 
-require 'faraday'
 require_relative '../lib/faraday/mashify'
 
 require 'webmock/rspec'
