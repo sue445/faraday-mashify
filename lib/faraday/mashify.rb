@@ -1,9 +1,10 @@
 # frozen_string_literal: true
 
-require_relative 'mashify/middleware'
-require_relative 'mashify/version'
 require 'faraday'
 require 'hashie/mash'
+
+require_relative 'mashify/middleware'
+require_relative 'mashify/version'
 
 module Faraday
   # This will be your middleware main module, though the actual middleware implementation will go
