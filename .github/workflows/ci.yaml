@@ -25,15 +25,13 @@ jobs:
       - name: Run RuboCop
         run: bundle exec rubocop
       - name: Slack Notification (not success)
-        uses: lazy-actions/slatify@master
+        uses: act10ns/slack@v2
         if: "! success()"
         continue-on-error: true
         with:
-          job_name: "*rubocop*"
-          type: ${{ job.status }}
-          icon_emoji: ":octocat:"
-          url: ${{ secrets.SLACK_WEBHOOK }}
-          token: ${{ secrets.GITHUB_TOKEN }}
+          status: ${{ job.status }}
+          webhook-url: ${{ secrets.SLACK_WEBHOOK }}
+
   rspec:
     runs-on: ubuntu-latest
     strategy:
@@ -58,15 +56,13 @@ jobs:
       - name: Run RSpec
         run: bundle exec rspec
       - name: Slack Notification (not success)
-        uses: lazy-actions/slatify@master
+        uses: act10ns/slack@v2
         if: "! success()"
         continue-on-error: true
         with:
-          job_name: ${{ format('*rspec* ({0})', matrix.ruby) }}
-          type: ${{ job.status }}
-          icon_emoji: ":octocat:"
-          url: ${{ secrets.SLACK_WEBHOOK }}
-          token: ${{ secrets.GITHUB_TOKEN }}
+          status: ${{ job.status }}
+          webhook-url: ${{ secrets.SLACK_WEBHOOK }}
+          matrix: ${{ toJson(matrix) }}
 
   notify:
     needs:
@@ -77,12 +73,9 @@ jobs:
 
     steps:
       - name: Slack Notification (success)
-        uses: lazy-actions/slatify@master
+        uses: act10ns/slack@v2
         if: always()
         continue-on-error: true
         with:
-          job_name: '*build*'
-          type: ${{ job.status }}
-          icon_emoji: ":octocat:"
-          url: ${{ secrets.SLACK_WEBHOOK }}
-          token: ${{ secrets.GITHUB_TOKEN }}
+          status: ${{ job.status }}
+          webhook-url: ${{ secrets.SLACK_WEBHOOK }}
