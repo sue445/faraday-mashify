@@ -18,7 +18,7 @@ module Faraday
       # @param options [Hash]
       # @option options [Class] :mash_class Responses are wrapped in this class (default is `::Hashie::Mash`)
       def initialize(app = nil, options = {})
-        super(app, options)
+        super
         self.mash_class = options[:mash_class] || self.class.mash_class || ::Hashie::Mash
       end
 
