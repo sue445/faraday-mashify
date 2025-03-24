@@ -1,4 +1,4 @@
-require:
+plugins:
   - rubocop-packaging
   - rubocop-performance
   - rubocop-rspec
@@ -14,6 +14,9 @@ AllCops:
   TargetRubyVersion: 2.7
   SuggestExtensions: false
   NewCops: enable
+
+Gemspec/DevelopmentDependencies:
+  EnforcedStyle: gemspec
 
 Metrics/BlockLength:
   Exclude:
