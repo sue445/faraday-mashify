@@ -43,6 +43,7 @@ Gem::Specification.new do |spec|
   spec.add_development_dependency 'yard'
 
   spec.add_development_dependency 'rubocop', '~> 1.74'
+  spec.add_development_dependency 'rubocop_auto_corrector'
   spec.add_development_dependency 'rubocop-packaging', '~> 0.6'
   spec.add_development_dependency 'rubocop-performance', '~> 1.0'
   spec.add_development_dependency 'rubocop-rspec', '~> 3.5'
