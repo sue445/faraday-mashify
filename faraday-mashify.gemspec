@@ -42,8 +42,8 @@ Gem::Specification.new do |spec|
   spec.add_development_dependency 'webmock'
   spec.add_development_dependency 'yard'
 
-  spec.add_development_dependency 'rubocop', '~> 1.24.0'
-  spec.add_development_dependency 'rubocop-packaging', '~> 0.5.0'
+  spec.add_development_dependency 'rubocop', '~> 1.74'
+  spec.add_development_dependency 'rubocop-packaging', '~> 0.6'
   spec.add_development_dependency 'rubocop-performance', '~> 1.0'
-  spec.add_development_dependency 'rubocop-rspec', '~> 2.0'
+  spec.add_development_dependency 'rubocop-rspec', '~> 3.5'
 end
