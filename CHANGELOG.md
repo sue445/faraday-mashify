@@ -1,7 +1,13 @@
 # Changelog
 
 ## Unreleased
-[full changelog](http://github.com/sue445/faraday-mashify/compare/v1.0.0...main)
+[full changelog](http://github.com/sue445/faraday-mashify/compare/v1.0.1...main)
+
+## [v1.0.1](https://github.com/sue445/faraday-mashify/releases/tag/v1.0.1)
+[full changelog](http://github.com/sue445/faraday-mashify/compare/v1.0.0...v1.0.1)
+
+* Release gem from GitHub Actions
+  * https://github.com/sue445/faraday-mashify/pull/27
 
 ## [v1.0.0](https://github.com/sue445/faraday-mashify/releases/tag/v1.0.0)
 
