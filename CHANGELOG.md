@@ -1,7 +1,13 @@
 # Changelog
 
 ## Unreleased
-[full changelog](http://github.com/sue445/faraday-mashify/compare/v1.0.1...main)
+[full changelog](http://github.com/sue445/faraday-mashify/compare/v1.0.2...main)
+
+## [v1.0.2](https://github.com/sue445/faraday-mashify/releases/tag/v1.0.2)
+[full changelog](http://github.com/sue445/faraday-mashify/compare/v1.0.1...v1.0.2)
+
+* Support Ruby 4.0
+  * https://github.com/sue445/faraday-mashify/pull/37
 
 ## [v1.0.1](https://github.com/sue445/faraday-mashify/releases/tag/v1.0.1)
 [full changelog](http://github.com/sue445/faraday-mashify/compare/v1.0.0...v1.0.1)
