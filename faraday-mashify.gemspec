@@ -30,12 +30,11 @@ Gem::Specification.new do |spec|
 
   spec.files = Dir['lib/**/*', 'README.md', 'LICENSE.md', 'CHANGELOG.md']
 
-  spec.required_ruby_version = '>= 2.7', '< 4'
+  spec.required_ruby_version = '>= 2.7'
 
   spec.add_dependency 'faraday', '~> 2.0'
   spec.add_dependency 'hashie'
 
-  spec.add_development_dependency 'bundler', '~> 2.0'
   spec.add_development_dependency 'rake', '~> 13.0'
   spec.add_development_dependency 'rspec', '~> 3.0'
   spec.add_development_dependency 'simplecov', '~> 0.21.0'
