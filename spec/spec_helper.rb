@@ -14,7 +14,7 @@ module EnvCompatibility
   end
 end
 
-module ResponseMiddlewareExampleGroup
+module ResponseMiddlewareExampleGroup # rubocop:disable Style/OneClassPerFile
   def self.included(base)
     base.let(:options) { {} }
     base.let(:headers) { {} }
