@@ -1,6 +1,6 @@
 # Faraday Mashify
 
-[![CI](https://github.com/sue445/faraday-mashify/actions/workflows/ci.yaml/badge.svg)](https://github.com/sue445/faraday-mashify/actions/workflows/ci.yaml)
+[![CI](https://github.com/sue445/faraday-mashify/actions/workflows/ci.yml/badge.svg)](https://github.com/sue445/faraday-mashify/actions/workflows/ci.yml)
 [![Gem](https://img.shields.io/gem/v/faraday-mashify.svg?style=flat-square)](https://rubygems.org/gems/faraday-mashify)
 [![License](https://img.shields.io/github/license/sue445/faraday-mashify.svg?style=flat-square)](LICENSE.md)
 
