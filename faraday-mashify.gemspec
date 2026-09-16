@@ -48,7 +48,4 @@ Gem::Specification.new do |spec|
   spec.add_development_dependency 'rubocop-packaging', '~> 0.6'
   spec.add_development_dependency 'rubocop-performance', '~> 1.0'
   spec.add_development_dependency 'rubocop-rspec', '~> 3.5'
-
-  # FIXME: workaround for https://github.com/sue445/faraday-mashify/issues/72
-  spec.add_development_dependency 'json', '< 3'
 end
